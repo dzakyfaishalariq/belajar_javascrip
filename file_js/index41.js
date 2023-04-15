@@ -1,5 +1,12 @@
-function solution(year){
-    // 1 abat = 100 tahun
-    return Math.ceil(year/100);
+class add{
+    constructor(...words){
+        this.words = words;
+    }
+    print(){
+        console.log("$"+this.words.join('$')+"$");
+        return "$"+this.words.join('$')+"$";
+    }
 }
-solution(1905);
+let a = new add('a','b','c');
+let b = a.print()
+console.log(b.split('$').join('-'))

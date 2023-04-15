@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Inlain kelik</title>
+    <link rel="stylesheet" href="app.css">
+</head>
+<body>
+ <button id="tombol">Kelik saya</button>
+<script>
+    const tombol = document.querySelector('#tombol');
+    tombol.onclick = () => {
+        alert('kelik saya');
+    }
+    tombol.onmouseover = () => {
+        alert('kelik saya dari bagian over');
+    }
+</script>
+</body>
+</html>

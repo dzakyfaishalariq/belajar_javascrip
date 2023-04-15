@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Generet color</title>
+    <style>
+        #tombol1{
+            width: 100px;
+            height: 100px;
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+<h1>Generet color</h1>
+<button id="tombol_warna">klik</button>
+<hr>
+<button id="tombol1">Kelik</button>
+<button id="tombol1">Kelik</button>
+<button id="tombol1">Kelik</button>
+<button id="tombol1">Kelik</button>
+<button id="tombol1">Kelik</button>
+<button id="tombol1">Kelik</button>
+<button id="tombol1">Kelik</button>
+<button id="tombol1">Kelik</button>
+<button id="tombol1">Kelik</button>
+<hr>
+<button id="tombol2">Kelik2</button>
+<input type="text" id="input1">
+<h2 id="tex1"></h2>
+<hr>
+<form action="/destination" id="form">
+    <input type="text" id="input2">
+    <button type="submit">Submit</button>
+</form>
+<h2>Notes</h2>
+<ul id="list1"></ul>
+<script>
+    const form = document.querySelector('#form');
+    let list1 = document.querySelector('#list1');
+    let input2 = document.querySelector('#input2');
+    form.addEventListener('submit',function (e) {
+        e.preventDefault();// mencegah interaksi pindah halaman
+        let text = input2.value;
+        let newlis = document.createElement('li')
+        newlis.innerText = text;
+        list1.append(newlis);
+        input2.value = '';
+    })
+
+    const input1 = document.querySelector('#input1');
+    input1.addEventListener('keydown',function (e) {
+        // console.log('key down : ' + e.key);
+        switch (e.key) {
+            case 'ArrowUp':
+                console.log('ArrowUp');
+                break;
+            case 'ArrowDown':
+                console.log('ArrowDown');
+                break;
+            case 'ArrowLeft':
+                console.log('ArrowLeft');
+                break;
+            case 'ArrowRight':
+                console.log('ArrowRight');
+                break;
+            default:
+                console.log('key lain');
+                break;
+        }
+    })
+    // tampilkan secara realtime atau bisa change
+    input1.addEventListener('input',function () {
+        const tex1 = document.querySelector('#tex1');
+        tex1.innerText = input1.value;
+    })
+    // input1.addEventListener('keyup',function () {
+    //     console.log('key up');
+    // })
+    const tombol = document.getElementById('tombol_warna');
+    const h1 = document.querySelector('h1');
+    const generetRandomColor = () => {
+        const r = Math.round(Math.random() * 255);
+        const g = Math.round(Math.random() * 255);
+        const b = Math.round(Math.random() * 255);
+        return `rgb(${r}, ${g}, ${b})`;
+    }
+    tombol.addEventListener('click', function () {
+        const newColor = generetRandomColor();
+        const newColor2 = generetRandomColor();
+        document.body.style.backgroundColor = newColor;
+        h1.innerText = newColor;
+        h1.style.color = newColor2;
+    })
+    const buttons = document.querySelectorAll('#tombol1');
+    for (let button of buttons) {
+        button.addEventListener('click',colorrize)
+    }
+    function colorrize(){
+        this.style.backgroundColor = generetRandomColor();
+        this.innerText = generetRandomColor();
+    }
+</script>
+</body>
+</html>

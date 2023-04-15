@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AddEvenListener</title>
+</head>
+<body>
+    <button id="tombol">Kelik saya</button>
+    <button id="tombol2">Kelik saya 2</button>
+    <button id="tombol3">Kelik saya 3</button>
+    <script>
+        const tombol = document.querySelector('#tombol')
+        tombol.addEventListener('click', function () {
+            alert('kelik saya');
+        })
+        const tombol2 = document.querySelector('#tombol2')
+        tombol2.addEventListener('click', function () {
+            alert('kelik saya 2');
+        })
+        let stepSatu = () => {
+            alert('step satu');
+        }
+        let stepDua = () => {
+            alert('step dua');
+        }
+        const tombol3 = document.querySelector('#tombol3');
+        // tombol3.onclick = stepSatu; // kekurangan ini hanya bisa satu kali kelik
+        // tombol3.onclick = stepDua;
+        tombol3.addEventListener('click', stepSatu); // kelebihannya bisa lebih dari satu kali kelik
+        tombol3.addEventListener('click', stepDua);
+    </script>
+</body>
+</html>
